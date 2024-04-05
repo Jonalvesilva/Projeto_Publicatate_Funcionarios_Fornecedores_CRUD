@@ -1,0 +1,10 @@
+PUT http://localhost:8080/funcionarios/3 
+Content-Type: application/json
+
+{
+  "name": "Goku",
+  "surname": "Silva",
+  "title": "Kaioshin",
+  "salary": "8001",
+  "created_at": "2023-04-17T10:48:18.584Z"
+}

@@ -1,0 +1,10 @@
+POST http://localhost:8080/fornecedores/
+Content-Type: application/json
+
+{
+  "name": "Casa e Video",
+  "status": "Inativa",
+  "person": "Juridica",
+  "created_at":"11/01/1994"
+}
+
