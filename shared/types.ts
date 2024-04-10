@@ -14,3 +14,20 @@ export type Fornecedor = {
   person: string;
   created_at: string;
 };
+
+export type FindParams = {
+  limit?: number;
+  offset?: number;
+  search?: string;
+  order_by?: string;
+  direction?: string;
+};
+
+export type FuncionarioRow = {
+  id: number;
+  nome: string;
+  sobrenome: string;
+  titulo: string;
+  salario: string;
+  created_at: string;
+};
