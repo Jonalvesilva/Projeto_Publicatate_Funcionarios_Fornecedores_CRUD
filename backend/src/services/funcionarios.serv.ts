@@ -26,22 +26,29 @@ export async function getFuncionarios({
   ])} ${sqlDirection}`;
 
   let funcionarios;
+  let countFuncionarios;
 
   try {
     funcionarios =
       await pool.many(sql`SELECT * from public.publicatate_funcionarios
   ${sqlSearch} ${sqlOrderBy}
  limit ${limit} offset ${offset}`);
+
+    countFuncionarios = await pool.oneFirst(
+      sql`select count(*) from publicatate_funcionarios ${sqlSearch}`
+    );
   } catch (error) {
     return {
       success: false,
       funcionarios: [] as Funcionario[],
+      error,
     };
   }
 
   return {
     success: true,
     funcionarios: funcionarios,
+    countFuncionarios: Number(countFuncionarios),
   };
 }
 
@@ -72,14 +79,14 @@ export async function addFuncionario(data: Omit<Funcionario, "id">) {
 //Editar Funcionario
 export async function editarFuncionario(
   id: number,
-  data: Omit<Funcionario, "id">
+  data: Omit<Funcionario, "id" | "created_at">
 ) {
   const pool = await getPool();
-  const { created_at, name, salary, surname, title } = data;
+  const { name, salary, surname, title } = data;
   let editFuncionario;
   try {
     editFuncionario = await pool.any(
-      sql`UPDATE public.publicatate_funcionarios SET (nome,sobrenome,titulo,salario,created_at) = (${name},${surname},${title},${salary},${created_at}) where id=${id} returning *`
+      sql`UPDATE public.publicatate_funcionarios SET (nome,sobrenome,titulo,salario) = (${name},${surname},${title},${salary}) where id=${id} returning *`
     );
   } catch (error) {
     return { success: false, error };
