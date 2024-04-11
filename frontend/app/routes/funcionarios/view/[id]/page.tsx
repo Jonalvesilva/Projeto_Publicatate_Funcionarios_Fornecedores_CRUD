@@ -27,7 +27,7 @@ const initialFuncionario = {
   created_at: "",
 };
 
-export default function IntegranteView() {
+export default function View() {
   const params = useParams();
   const router = useRouter();
   const [user, setUser] = useState(initialFuncionario);
@@ -132,7 +132,7 @@ export default function IntegranteView() {
                   </button>
                   <LinkButton
                     className="bg-green-600 hover:bg-green-500 btn-text-shadow px-5 py-1 rounded-xl text-white"
-                    to={`/routes/funcionarios/edit/${params.id}/editar/`}
+                    to={`/routes/funcionarios/edit/${params.id}`}
                   >
                     Editar
                   </LinkButton>
