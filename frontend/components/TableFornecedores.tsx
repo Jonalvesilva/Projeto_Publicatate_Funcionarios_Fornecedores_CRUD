@@ -1,9 +1,9 @@
-import type { Fornecedor } from "../../shared/types";
+import type { FornecedorRow } from "../../shared/types";
 import { LinkButton } from "./LinkButton";
 
 export type field = {
   head: String[];
-  rows: Fornecedor[];
+  rows: FornecedorRow[];
 };
 
 export function TableFornecedores({ head, rows }: field) {
@@ -14,7 +14,7 @@ export function TableFornecedores({ head, rows }: field) {
           return (
             <tr
               key={index}
-              className="bg-blue-600 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-6 sm:mb-0"
+              className="bg-blue-600 flex flex-col flex-no wrap min-[900px]:table-row rounded-l-lg sm:rounded-none mb-6 lg:mb-0"
             >
               {head.map((dados, index) => {
                 return (
@@ -27,33 +27,33 @@ export function TableFornecedores({ head, rows }: field) {
           );
         })}
       </thead>
-      <tbody className="flex-1 sm:flex-none">
+      <tbody className="flex-1 min-[900px]:flex-none">
         {rows.map((element, index) => {
           return (
             <tr
               key={index}
-              className="flex flex-col flex-no wrap sm:table-row mb-6 sm:mb-0"
+              className="flex flex-col flex-no wrap min-[900px]:table-row mb-6 lg:mb-0"
             >
-              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 sm:text-center">
+              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 text-center">
                 {element.id}
               </td>
-              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 sm:text-center">
-                {element.name}
+              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 text-center">
+                {element.nome}
               </td>
-              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 sm:text-center">
-                {element.status}
+              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 text-center">
+                {element.status_empresa}
               </td>
-              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 sm:text-center">
-                {element.person}
+              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 text-center">
+                {element.pessoa}
               </td>
-              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 sm:text-center">
+              <td className="border-grey-light border hover:bg-gray-100 p-2 h-11 text-center">
                 {new Date(element.created_at).toLocaleDateString("en-GB")}
               </td>
               <td className="border-grey-light border p-2 h-11 flex justify-center items-center">
                 <LinkButton
-                  to={`/fornecedores/${element.id}`}
+                  to={`/routes/fornecedores/view/${element.id}`}
                   key={element.id}
-                  className="bg-blue-400 p-1 text-white rounded-lg"
+                  className="bg-blue-800 p-1 text-white rounded-lg"
                 >
                   Mostrar Fornecedor
                 </LinkButton>
