@@ -26,12 +26,16 @@ export async function getFornecedores({
   ])} ${sqlDirection}`;
 
   let fornecedores;
+  let count;
 
   try {
     fornecedores =
       await pool.many(sql`SELECT * from public.publicatate_fornecedores
   ${sqlSearch} ${sqlOrderBy}
  limit ${limit} offset ${offset}`);
+    count = await pool.oneFirst(
+      sql`select count(*) from publicatate_fornecedores ${sqlSearch}`
+    );
   } catch (error) {
     return {
       success: false,
@@ -43,6 +47,7 @@ export async function getFornecedores({
   return {
     success: true,
     fornecedores: fornecedores,
+    count: Number(count),
   };
 }
 
@@ -76,11 +81,11 @@ export async function editarFornecedor(
   data: Omit<Fornecedor, "id">
 ) {
   const pool = await getPool();
-  const { created_at, name, status, person } = data;
+  const { name, status, person } = data;
   let editFornecedor;
   try {
     editFornecedor = await pool.any(
-      sql`UPDATE public.publicatate_fornecedores SET (nome,status_empresa,pessoa,created_at) = (${name},${status},${person},${created_at}) where id=${id} returning *`
+      sql`UPDATE public.publicatate_fornecedores SET (nome,status_empresa,pessoa) = (${name},${status},${person}) where id=${id} returning *`
     );
   } catch (error) {
     return { success: false, error };
