@@ -2,7 +2,7 @@ import { LinkButton } from "@/components/LinkButton";
 
 export default function Home() {
   return (
-    <section className="bg-gray-700 flex flex-col items-center justify-center h-[90vh] min-h-[500px]">
+    <section className="bg-slate-800 flex flex-col items-center justify-center h-[90vh] min-h-[500px]">
       <h2 className="text-lg sm:text-xl md:text-2xl text-white text-center pb-8 pt-2">
         Bem Vindo ao Portal RH da Publicatate
       </h2>
