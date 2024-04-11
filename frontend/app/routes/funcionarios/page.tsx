@@ -13,7 +13,7 @@ import { PaginationButtons } from "../../../components/PaginationButtons";
 import { ImSpinner2 } from "react-icons/im";
 
 const pageSize = config.pageSize;
-const debouncedGetNotepads = asyncDebounce(getFuncionarios, 1000);
+const debounced = asyncDebounce(getFuncionarios, 1000);
 
 const initialFuncionarioList = {
   count: 0,
@@ -56,7 +56,7 @@ export default function Funcionarios() {
 
   const handle = () => {
     setIsLoading(true);
-    debouncedGetNotepads(getFuncionarioParams)
+    debounced(getFuncionarioParams)
       .then((data) => {
         setIsServing(true);
         setFuncionarioList({
@@ -77,7 +77,7 @@ export default function Funcionarios() {
 
   useEffect(() => {
     setIsLoading(true);
-    debouncedGetNotepads(getFuncionarioParams)
+    debounced(getFuncionarioParams)
       .then((data) => {
         setIsServing(true);
         setFuncionarioList({
@@ -98,7 +98,7 @@ export default function Funcionarios() {
 
   useEffect(() => {
     setIsLoading(true);
-    debouncedGetNotepads({ ...getFuncionarioParams, offset })
+    debounced({ ...getFuncionarioParams, offset })
       .then((data) => {
         setIsServing(true);
         setFuncionarioList({
