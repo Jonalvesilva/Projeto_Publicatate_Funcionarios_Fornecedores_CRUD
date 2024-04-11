@@ -31,3 +31,11 @@ export type FuncionarioRow = {
   salario: string;
   created_at: string;
 };
+
+export type FornecedorRow = {
+  id: number;
+  nome: string;
+  status_empresa: string;
+  pessoa: string;
+  created_at: string;
+};
