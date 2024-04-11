@@ -1,1 +1,7 @@
-{ "version": 2, "routes": [{ "src": "/src/(.*)", "dest": "src/$1" }] }
+{
+  "version": 2,
+  "routes": [
+    { "src": "/api/(.*)", "dest": "src/index.ts" },
+    { "src": "/(.*)", "dest": "src/index.ts" }
+  ]
+}
