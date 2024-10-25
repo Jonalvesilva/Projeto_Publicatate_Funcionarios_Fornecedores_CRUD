@@ -43,9 +43,9 @@
 <h2>Fotos</h2>
 <table>
   <tr>
-    <td><img src="https://media.licdn.com/dms/image/D4D2DAQFLr9bHxR2xnA/profile-treasury-image-shrink_800_800/0/1713963129579?e=1714572000&v=beta&t=it9o1wyhxV3rE6_uB0I5Sioy-nH2GNmct9_3KRqTQ7c" 
+    <td><img src="https://drive.google.com/uc?export=view&id=1FEuwtkpoCN2mzV7W_e0p6ocDmNI4fxQ1" 
           width=500/></td>
-    <td> <img src="https://media.licdn.com/dms/image/D4D2DAQG-V4D9cFxaTQ/profile-treasury-image-shrink_800_800/0/1713963153335?e=1714572000&v=beta&t=f7l-jDR6IgFQPWYlEEGjmkTlSak5QLcq86fX_M4Sbnw" 
+    <td> <img src="https://drive.google.com/uc?export=view&id=1KFjUJqJwaz73DyYYROezsQZseqxoZ0-q" 
            width=500/></td>
   </tr>
 </table>
